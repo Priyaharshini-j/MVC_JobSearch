@@ -44,8 +44,11 @@ namespace JobSearch.Controllers
             return View(GetJobSearch());
         }
 
-        // GET: JobSearchController/Details/5
-        public ActionResult Details(int id)
+        [HttpGet]
+      
+
+            // GET: JobSearchController/Details/5
+            public ActionResult Details(int id)
         {
             return View(GetJobId(id));
         }

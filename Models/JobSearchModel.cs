@@ -9,6 +9,8 @@
         public string Cmpy_Location { get; set; }
         public int Req_exp { get; set; }
         public int Placed_emp { get; set; }
+
+
     }
 
 }
