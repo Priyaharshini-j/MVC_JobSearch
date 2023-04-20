@@ -5,8 +5,66 @@
 }
 
 <h1>Login</h1>
+<style>
+    /* Center the form container */
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-<h4>LoginModel</h4>
+    /* Add some margin between form groups */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    /* Style the labels */
+    .control-label {
+        display: inline-block;
+        margin-bottom: .5rem;
+        font-weight: 600;
+    }
+
+    /* Style the input fields */
+    .form-control {
+        display: block;
+        width: 100%;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+    /* Style the validation messages */
+    .text-danger {
+        display: block;
+        margin-top: .25rem;
+        font-size: 80%;
+        color: #dc3545;
+    }
+
+    /* Style the submit button */
+    .btn-primary {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    /* Add some padding to the button container */
+    .form-group:last-of-type {
+        margin-top: 1rem;
+    }
+
+</style>
+<h4>Enter the login Credentials</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -26,19 +84,15 @@
            
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+                <input type="password" asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
            
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Login" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
