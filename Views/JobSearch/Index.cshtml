@@ -4,8 +4,70 @@
     ViewData["Title"] = "Job Details Page";
 }
 
+<style>
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+        .table th,
+        .table td {
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        .table th {
+            background-color: #E6E6FA;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+
+    .float-end {
+        float: right;
+        margin-left: 1rem;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        text-decoration: none;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+</style>
 <h1>Job Details</h1>
 <br/>
+@using (Html.BeginForm())
+{
+    <p class="float-end">
+        Find by name: @Html.TextBox("searchQuery")
+        <input type="submit" class="float-end" value="Search" formmethod="post" />
+    </p>
+}
 <br/>
 <p>
     <a asp-action="Create">Create New</a> |

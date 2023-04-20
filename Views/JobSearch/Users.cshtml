@@ -1,0 +1,132 @@
+﻿@model IEnumerable<JobSearch.Models.JobSearchModel>
+
+@{
+    ViewData["Title"] = "Users";
+}
+<style>
+    /* Style the search input */
+    input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .float-end {
+        float: right;
+        margin-left: 1rem;
+    }
+    /* Style the search button */
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        text-decoration: none;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    /* Style the table */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+    /* Style the table rows */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Style the table data cells */
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+        /* Style the table data cells when hovered over */
+        td:hover {
+            background-color: #f2f2f2;
+        }
+
+
+</style>
+
+<h1>Users</h1>
+
+@using (Html.BeginForm())
+{
+    <p class="float-end">
+        Find by name: @Html.TextBox("searchQuery")
+        <input type="submit" class="float-end" value="Search" formmethod="post" />
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cmpy_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cmpy_Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Req_exp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Placed_emp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cmpy_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cmpy_Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Req_exp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placed_emp)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

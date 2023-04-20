@@ -24,7 +24,7 @@ namespace JobSearch
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=JobSearch}/{action=Index}/{id?}");
+                pattern: "{controller=Login}/{action=Login}/{id?}");
 
             app.Run();
         }

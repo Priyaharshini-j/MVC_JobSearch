@@ -15,7 +15,7 @@ namespace JobSearch.Controllers
             _configuration = configuration;
             _Connection = new SqlConnection(_configuration.GetConnectionString("Job_Details"));
         }
-        
+
         public List<JobSearchModel> GetJobSearch()
         {
             List<JobSearchModel> Job_Search = new();
@@ -38,10 +38,89 @@ namespace JobSearch.Controllers
             _Connection.Close();
             return Job_Search;
         }
+
+        // GET: JobSearchController
+        public ActionResult Users()
+        {
+            return View(GetJobSearch());
+        }
+
+        [HttpPost]
+
+        public ActionResult Users(int id, string searchQuery)
+        {
+            List<JobSearchModel> jobList = GetJobSearch();
+            var students = from s in jobList
+                           select s;
+            if (!String.IsNullOrEmpty(searchQuery))
+            {
+                List<JobSearchModel> search = new();
+                _Connection.Open();
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM JOB_DETAILS WHERE CMPY_NAME LIKE '%{searchQuery}%' OR CMPY_LOCATION LIKE '%{searchQuery}%' OR JOB_ROLE LIKE '%{searchQuery}%'", _Connection);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    JobSearchModel user = new();
+                    user.Id = (int)dr[0];
+                    user.Role = (string)dr[1];
+                    user.Salary = "" + (dr[2]);
+                    user.Cmpy_name = (string)(dr[3]);
+                    user.Cmpy_Location = dr.GetString(4);
+                    user.Req_exp = (int)(dr[5]);
+                    user.Placed_emp = (int)dr[6];
+                    search.Add(user);
+                }
+                dr.Close();
+                _Connection.Close();
+                return View(search);
+
+            }
+            return View(jobList);
+        }
+
+
+
+
+
         // GET: JobSearchController
         public ActionResult Index()
         {
             return View(GetJobSearch());
+        }
+
+        [HttpPost]
+
+        public ActionResult Index(int id,string searchQuery)
+        {
+            List<JobSearchModel> jobList = GetJobSearch();
+            var students = from s in jobList
+                           select s;
+            if (!String.IsNullOrEmpty(searchQuery))
+            {
+                List<JobSearchModel> search = new();
+                _Connection.Open();
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM JOB_DETAILS WHERE CMPY_NAME LIKE '%{searchQuery}%' OR CMPY_LOCATION LIKE '%{searchQuery}%' OR JOB_ROLE LIKE '%{searchQuery}%'", _Connection);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    JobSearchModel user = new();
+                    user.Id = (int)dr[0];
+                    user.Role = (string)dr[1];
+                    user.Salary = ""+(dr[2]);
+                    user.Cmpy_name = (string)(dr[3]);
+                    user.Cmpy_Location = dr.GetString(4);
+                    user.Req_exp = (int)(dr[5]);
+                    user.Placed_emp = (int)dr[6];
+                    search.Add(user);
+                }
+                dr.Close();
+                _Connection.Close();
+                return View(search);
+
+            }
+            return View(jobList);
         }
 
         [HttpGet]
