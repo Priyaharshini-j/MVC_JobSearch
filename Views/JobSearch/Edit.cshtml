@@ -3,7 +3,88 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<style>
+    /* style for form elements */
+    .form-group {
+        margin-bottom: 1rem;
+    }
 
+    label.control-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    input.form-control {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+        input.form-control:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    /* style for buttons */
+    .btn {
+        display: inline-block;
+        font-weight: 400;
+        color: #fff;
+        background-color: #007bff;
+        border: 1px solid #007bff;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+        .btn:hover {
+            color: #fff;
+            background-color: #0069d9;
+            border-color: #0062cc;
+            text-decoration: none;
+        }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+    /* style for headings */
+    h1, h4 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+</style>
 <h1>Edit</h1>
 <br/>
 <h4>Update the job details</h4>

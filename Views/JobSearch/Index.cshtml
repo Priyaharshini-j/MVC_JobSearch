@@ -15,6 +15,7 @@
         width: 100%;
         border-collapse: collapse;
         border-spacing: 0;
+        border-radius: 15px 50px 30px 5px;
     }
 
         .table th,
@@ -29,7 +30,7 @@
         }
 
         .table tbody tr:nth-child(even) {
-            background-color: #f8f8f8;
+            background-color: whitesmoke;
         }
 
     .float-end {
@@ -70,7 +71,7 @@
 }
 <br/>
 <p>
-    <a asp-action="Create">Create New</a> |
+    <a class="btn btn-outline-primary" asp-action="Create">Create New</a> 
 
     <br />
 
@@ -102,6 +103,8 @@
                 @Html.DisplayNameFor(model => model.Placed_emp)
             </th>
             <th></th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -128,9 +131,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Placed_emp)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            <td class="btn-light">
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) </td>
+                <td class="btn-light">@Html.ActionLink("Details", "Details", new { id=item.Id })</td>
+                
+                <td class="btn-light">
                 @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
             </td>
         </tr>

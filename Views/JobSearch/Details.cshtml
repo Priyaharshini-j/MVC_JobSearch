@@ -3,7 +3,62 @@
 @{
     ViewData["Title"] = "Details";
 }
+<style>
+    /* Set the font family and font size for the page */
+   
+    /* Center the heading and add some margin */
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
+    /* Style the container div */
+    div {
+        margin: 20px auto;
+        width: 90%;
+        max-width: 800px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    /* Style the dl and dt elements */
+    dl {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        margin-top: 20px;
+    }
+
+    dt {
+        font-weight: bold;
+    }
+
+    /* Style the action links */
+    div a {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+        border-radius: 5px;
+        padding: 5px 10px;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+
+        div a:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+    /* Style the hr element */
+    hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+</style>
 <h1>Details</h1>
 <br />
 <div>
